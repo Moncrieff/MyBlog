@@ -1,0 +1,10 @@
+<h1>Новая запись</h1>
+
+<%= simple_form_for @post do |f| %>
+  <%= f.input :header, label: "Тема" %>
+  <%= f.input :reading_time, label: "Время чтения" %>
+  <%= f.input :excerpt, label: "Краткое содержание" %>
+  <%= f.input :body, label: "Текст" %>
+
+  <%= f.submit "Опубликовать" %>
+<% end %>
