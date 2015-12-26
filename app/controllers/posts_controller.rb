@@ -13,7 +13,8 @@ class PostsController < ApplicationController
       flash[:notice] = "Новая запись успешно опубликована."
       redirect_to @post
     else
-      # insert the flash for unsuccessful post publication
+      flash.now[:alert] = "Запись не была опубликована."
+      render "new"
     end
   end
 
