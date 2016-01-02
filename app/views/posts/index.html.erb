@@ -1,1 +1,9 @@
 <%= link_to "Новая запись", new_post_path %>
+
+<div class="posts">
+  <% @posts.each do |post| %>
+    <h2><%= link_to post.header, post %></h2>
+    <div id="reading_time"><%= post.reading_time %></div>
+    <h3><%= post.excerpt %></h3>
+  <% end %>
+</div>
