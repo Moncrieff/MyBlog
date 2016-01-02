@@ -23,6 +23,22 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+
+    if @post.save
+      flash[:notice] = "Запись была успешно изменена."
+      redirect_to @post
+    else
+      # To make the flash message in case of unsuccessful update
+    end
+  end
+
 
   private
 
