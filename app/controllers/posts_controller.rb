@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
   def index
     @posts = Post.all
   end
@@ -20,15 +21,12 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
     @post.update(post_params)
 
     if @post.save
@@ -41,7 +39,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     if @post.delete
       flash[:notice] = "Запись была успешно удалена."
       redirect_to posts_path
@@ -50,6 +47,13 @@ class PostsController < ApplicationController
 
 
   private
+
+  def set_post
+    @post = Post.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:alert] = "Такой записи тут нет."
+    redirect_to posts_path
+  end
 
   def post_params
     params.require(:post).permit(:header, :reading_time, :excerpt, :body)
