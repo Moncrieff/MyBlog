@@ -35,7 +35,16 @@ class PostsController < ApplicationController
       flash[:notice] = "Запись была успешно изменена."
       redirect_to @post
     else
-      # To make the flash message in case of unsuccessful update
+      flash.now[:alert] = "Запись не была изменена."
+      render "edit"
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    if @post.delete
+      flash[:notice] = "Запись была успешно удалена."
+      redirect_to posts_path
     end
   end
 
