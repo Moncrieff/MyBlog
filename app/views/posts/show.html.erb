@@ -8,6 +8,13 @@
 </div>
 <h2><%= @post.reading_time %></h2>
 <h3><%= @post.excerpt %></h3>
+<% if @post.attachment.present? %>
+  <div class="attachment">
+    <p>
+      <%= link_to File.basename(@post.attachment.url), @post.attachment.url %>
+    </p>
+  </div>
+<% end %>
 <p>
-  <%= @post.body %>
+  <%= markdown(@post.body) %>
 </p>

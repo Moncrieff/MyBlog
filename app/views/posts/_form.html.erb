@@ -11,6 +11,7 @@
   <%= f.input :reading_time, label: "Время чтения" %>
   <%= f.input :excerpt, label: "Краткое содержание" %>
   <%= f.input :body, label: "Текст" %>
+  <%= f.input :attachment, as: :file, label: "Изображение" %>
 
   <%= f.submit "Опубликовать" %>
 <% end %>

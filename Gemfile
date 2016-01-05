@@ -53,3 +53,5 @@ end
 
 gem 'redcarpet'
 gem 'simple_form'
+
+gem 'carrierwave'
