@@ -38,4 +38,19 @@ RSpec.feature "Users can create blog posts" do
       expect(page).to have_content "image.png"
     end
   end
+
+  scenario "persisting file uploads across form displays" do
+    attach_file "Изображение", "spec/fixtures/image.png"
+    click_button "Опубликовать"
+
+    fill_in "Тема", with: "Новый пост с картинкой"
+    fill_in "Время чтения", with: "7"
+    fill_in "Краткое содержание", with: "Очень коротко о том, что тут будет."
+    fill_in "Текст", with: "Новый пост, в котором рассказывается о том, как создать новый пост."
+    click_button "Опубликовать"
+
+    within(".attachment") do
+      expect(page).to have_content "image.png"
+    end
+  end
 end

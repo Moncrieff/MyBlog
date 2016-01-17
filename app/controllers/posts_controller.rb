@@ -56,6 +56,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:header, :reading_time, :excerpt, :body, :attachment)
+    params.require(:post).permit(:header, :reading_time, :excerpt, :body, :attachment, :attachment_cache)
   end
 end
