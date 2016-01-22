@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    3.times {@post.images.build}
   end
 
   def create
@@ -56,6 +57,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:header, :reading_time, :excerpt, :body, :attachment, :attachment_cache)
+    params.require(:post).permit(:header, :reading_time, :excerpt, :body,
+    images_attributes: [:file, :file_cache])
   end
 end

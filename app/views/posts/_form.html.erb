@@ -11,8 +11,11 @@
   <%= f.input :reading_time, label: "Время чтения" %>
   <%= f.input :excerpt, label: "Краткое содержание" %>
   <%= f.input :body, label: "Текст" %>
-  <%= f.input :attachment, as: :file, label: "Изображение" %>
-  <%= f.input :attachment_cache, as: :hidden %>
+  <h3>Изображения</h3>
+  <%= f.simple_fields_for :images do |ff| %>
+    <%= ff.input :file, as: :file, label: "Изображение №#{ff.index + 1}" %>
+    <%= ff.input :file_cache, as: :hidden %>
+  <% end %>
 
   <%= f.submit "Опубликовать" %>
 <% end %>

@@ -24,23 +24,28 @@ RSpec.feature "Users can create blog posts" do
     expect(page).to have_content "Header can't be blank"
   end
 
-  scenario "with an image attachment" do
-    fill_in "Тема", with: "Новый пост с картинкой"
+  scenario "with multiple images" do
+    fill_in "Тема", with: "Новый пост с картинками"
     fill_in "Время чтения", with: "7"
     fill_in "Краткое содержание", with: "Очень коротко о том, что тут будет."
     fill_in "Текст", with: "Новый пост, в котором рассказывается о том, как создать новый пост."
-    attach_file "Изображение", "spec/fixtures/image.png"
+
+    attach_file "Изображение №1", Rails.root.join("spec/fixtures/image1.png")
+    attach_file "Изображение №2", Rails.root.join("spec/fixtures/image2.png")
+    attach_file "Изображение №3", Rails.root.join("spec/fixtures/image3.png")
     click_button "Опубликовать"
 
     expect(page).to have_content "Новая запись успешно опубликована."
 
-    within(".attachment") do
-      expect(page).to have_content "image.png"
+    within(".images") do
+      expect(page).to have_content "image1.png"
+      expect(page).to have_content "image2.png"
+      expect(page).to have_content "image3.png"
     end
   end
 
   scenario "persisting file uploads across form displays" do
-    attach_file "Изображение", "spec/fixtures/image.png"
+    attach_file "Изображение №1", "spec/fixtures/image.png"
     click_button "Опубликовать"
 
     fill_in "Тема", with: "Новый пост с картинкой"
@@ -49,7 +54,7 @@ RSpec.feature "Users can create blog posts" do
     fill_in "Текст", with: "Новый пост, в котором рассказывается о том, как создать новый пост."
     click_button "Опубликовать"
 
-    within(".attachment") do
+    within(".images") do
       expect(page).to have_content "image.png"
     end
   end
