@@ -13,7 +13,7 @@
   <div class="images">
     <% @post.images.each do |image| %>
       <p>
-        <%= link_to File.basename(image.file.url), image.file.url %>
+        <%= link_to File.basename(image.file.url), image_path(image) %>
       </p>
     <% end %>
   </div>
