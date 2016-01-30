@@ -1,0 +1,4 @@
+<%= f.simple_fields_for :images, child_index: index do |ff| %>
+  <%= ff.input :file, as: :file, label: "Изображение №#{index += 1}" %>
+  <%= ff.input :file_cache, as: :hidden %>
+<% end %>
