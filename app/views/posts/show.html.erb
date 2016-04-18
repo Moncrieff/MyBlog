@@ -1,23 +1,29 @@
 <h1><%= @post.header %></h1>
 <div id="actions">
   <ul>
-    <li><%= link_to "Редактировать", edit_post_path(@post) %></li>
+    <li><%= link_to "Редактировать", edit_post_path(@post), id: "edit", class: "button" %></li>
     <li><%= link_to "Удалить запись", post_path(@post), method: :delete,
-                              data: { confirm: "Вы уверены, что хотите удалить эту запись?"} %></li>
+                              data: { confirm: "Вы уверены, что хотите удалить эту запись?"}, id: "delete", class: "button" %></li>
   </ul>
 </div>
-<h2><%= @post.reading_time %></h2>
-<h3><%= @post.excerpt %></h3>
-<% if @post.images.any? %>
-  <h4>Images</h4>
-  <div class="images">
-    <% @post.images.each do |image| %>
-      <p>
-        <%= link_to File.basename(image.file.url), image_path(image) %>
-      </p>
-    <% end %>
+<div class="column-3" id="reading_time">
+  Время чтения <%= @post.reading_time %> мин.
+</div>
+<div class="content column-9" >
+  <div id="excerpt">
+    <%= @post.excerpt %>
   </div>
-<% end %>
-<p>
-  <%= markdown(@post.body) %>
-</p>
+  <% if @post.images.any? %>
+    <h4>Images</h4>
+    <div class="images">
+      <% @post.images.each do |image| %>
+        <p>
+          <%= link_to File.basename(image.file.url), image_path(image) %>
+        </p>
+      <% end %>
+    </div>
+  <% end %>
+  <article class="post">
+    <%= markdown(@post.body) %>
+  </article>
+</div>

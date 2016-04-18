@@ -1,9 +1,11 @@
-<%= link_to "Новая запись", new_post_path %>
+<%= link_to "Новая запись", new_post_path, id: "new", class: "button" %>
 
-<div class="posts">
+<div class="posts column-12">
   <% @posts.each do |post| %>
-    <h2><%= link_to post.header, post %></h2>
-    <div id="reading_time"><%= post.reading_time %></div>
-    <h3><%= post.excerpt %></h3>
+    <div class="post_link column-12">
+      <div class="column-9" id="posts_header"><%= link_to post.header, post, id: "post_link" %></div>
+      <div class="column-9" id="posts_excerpt"><%= post.excerpt %></div>
+      <div class="column-3" id="posts_reading_time">Время чтения: <%= post.reading_time %> мин.</div>
+    </div>
   <% end %>
 </div>

@@ -7,13 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<% flash.each do |key, message| %>
-  <div class="">
-    <%= message %>
+  <div class="container">
+    <% flash.each do |key, message| %>
+      <div class="">
+        <%= message %>
+      </div>
+    <% end %>
+    <div class="content column-12">
+      <div class="header column-12">
+        Логотип
+        <div class="navigation">
+          <%= link_to "Статьи", posts_path %>
+        </div>
+      </div>
+      <%= yield %>
+    </div>
   </div>
-<% end %>
-<%= yield %>
-
 </body>
 </html>

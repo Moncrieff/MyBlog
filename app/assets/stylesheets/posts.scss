@@ -1,3 +1,78 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+h1 {
+  font-size: 2.6em;
+  line-height: 1.4em;
+}
+
+#actions {
+  li {
+    display: inline;
+    margin: 0.3em;
+  }
+  ul {
+    padding: 0px;
+  }
+}
+
+#reading_time {
+  border-style: solid;
+  font-family: FiraSans-Regular;
+  font-size: 14px;
+  line-height: 1.3em;
+}
+
+#excerpt {
+  font-family: Synerga;
+  font-size: 24px;
+  line-height: 1.3em;
+  border-style: solid;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.posts {
+  border-style: solid;
+  display: block;
+}
+
+h2 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+p {
+  margin-top: 1em;
+}
+
+.post_link {
+  display: block;
+  border-style: solid;
+}
+
+#posts_header {
+  font-family: FiraSans-Bold;
+  font-size: 2em;
+  border-style: solid;
+}
+
+a#post_link {
+  text-decoration: none;
+  color: #5a8c5a;
+}
+
+#posts_reading_time {
+  font-family: FiraSans-LightItalic;
+  font-size: 1em;
+}
+
+#posts_excerpt {
+  font-family: FiraSans-Light;
+  font-size: 1.25em;
+  display: block;
+}
+
+.button#new {
+  background-color: #41A85F;
+}

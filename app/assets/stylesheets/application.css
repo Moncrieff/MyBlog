@@ -13,3 +13,111 @@
  *= require_tree .
  *= require_self
  */
+@font-face {
+  font-family: Anglecia;
+  src: url("AngleciaProDisplay-RegularWeb.woff") format("woff");
+}
+
+@font-face {
+  font-family: Anglecia-Title;
+  src: url("AngleciaProTitle-RegularWeb.woff") format("woff");
+}
+
+@font-face {
+  font-family: FiraSans-Bold;
+  src: url("FiraSans-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: FiraSans-ExtraBold;
+  src: url("FiraSans-ExtraBold.woff") format("woff");
+}
+
+@font-face {
+  font-family: FiraSans-Regular;
+  src: url("FiraSans-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: FiraSans-Ultra;
+  src: url("FiraSans-Ultra.woff") format("woff");
+}
+
+@font-face {
+  font-family: FiraSans-Light;
+  src: url("FiraSans-Light.woff") format("woff");
+}
+
+@font-face {
+  font-family: FiraSans-LightItalic;
+  src: url("FiraSans-LightItalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: MuseoSansCyr;
+  src: url("MuseoSansCyr.woff") format("woff");
+}
+
+@font-face {
+  font-family: Synerga;
+  src: url("SynergaPro-RegularWeb.woff") format("woff");
+}
+
+body {
+  background-color: #93BB95;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+  box-sizing: border-box;
+  background-color: #f4f8f4;
+
+}
+.content {
+  background-color: #f4f8f4;
+  box-sizing: content-box;
+}
+
+.column-3, .column-9, .column-12 {
+  box-sizing: border-box;
+  float: left;
+}
+
+.column-3 {
+  width: 25%;
+}
+.column-9 {
+  width: 75%;
+}
+
+.column-12 {
+  width: 100%;
+}
+
+p {
+  font-family: Synerga;
+  font-size: 20px;
+  line-height: 1.4em;
+}
+
+h1, h2, h3, h4 {
+  font-family: FiraSans-Bold;
+  font-weight: normal;
+}
+
+.button {
+  font-family: FiraSans-Regular;
+  display: inline-block;
+  border-radius: .1em;
+  color: #efefef;
+  text-decoration: none;
+}
+
+.button#edit {
+  background-color: #54acd2;
+}
+
+.button#delete {
+  background-color: #e25041;
+}
